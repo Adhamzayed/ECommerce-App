@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Of Category</title>
+
+<!-- Bootstrap CSS  & FontAwsome-->
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<h3 class="text-center">List Of Category</h3>
+	
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Category Number</th>
+				<th scope="col">Category Name</th>
+				<th scope="col">description</th>	
+				<th scope="col">Base Section </th>
+				<th scope="col">Delete</th>
+				<th scope="col">Add Item</th>
+				<th scope="col">Sub Item</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="categoryList:${category}">
+				<th scope="row">[[*{category.id}]]</th>
+				<td>[[*{category.Name}]]</td>
+				<td>[[*{category.description}]]</td>
+				<td>[[*{category.Section.SectionName}]]</td>
+				 <!-- Delete category  -->
+				<td><a th:href="@{/deleteCategoryById/{id} (id=${category.id})}"	class="btn btn-primary">Delete</a></td> 
+				<td><a th:href ="@{/addItem/add/{id} (id=${category.id})}" class="btn btn-primary"> Add Item</a></td> 
+				<td><a th:href ="@{/ListOfSubItem/{id} (id=${category.id})}" class="btn btn-primary"> Sub Item</a></td> 
+
+			</tr>
+
+		</tbody>
+	</table>
+					<input type="button" onclick="location.href='ListOfSection.html';" value="Back To Section" />
+
+	<!-- Popper.JS -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+</body>
+</html>

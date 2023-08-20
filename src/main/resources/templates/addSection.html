@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Section</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<h3 class="text-center"> Add Section</h3>
+<form class="text-center border border-light p-5" action="/addSection" method="post">
+
+<!-- Name -->
+			<input type="text" name="sectionName" id="sectionName" class="form-control mb-4"
+				placeholder="Section Name"> 
+				
+				<input type="text" name="description" id="description" class="form-control mb-4"
+				placeholder="Section Description"> 
+				
+				
+				<input type="text" name="test" id="test" class="form-control mb-4"
+				placeholder="Section Description"> 
+				
+				<button class="btn btn-info btn-block" type="submit">add</button>
+		</form>
+							<input type="button" onclick="location.href='/ListOfSection.html';" value="Back To Section Page" />
+		
+<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+</body>
+</html>

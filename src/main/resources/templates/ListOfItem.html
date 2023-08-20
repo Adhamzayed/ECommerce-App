@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>List Of Item</title>
+<link href="css/bootstrap.css" rel="stylesheet"></head>
+<body>
+<h3 class="text-center">List Of Item</h3>
+	
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Item Number</th>
+				<th scope="col">Item Name</th>
+				<th scope="col">description</th>
+				<th scope="col">Price</th>		
+				<th scope="col">Base Category </th>
+				<th scope="col">Base Section </th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item:${item}">
+				<th scope="row">[[*{item.id}]]</th>
+				<td>[[*{item.itemName}]]</td>
+				<td>[[*{item.description}]]</td>
+				<td>[[*{item.price}]]</td>
+				<td>[[*{item.Category.getName()}]]</td>
+				<td>[[*{item.Category.Section.getSectionName()}]]</td>
+				 <!-- Delete category  -->
+				<td><a th:href="@{/deleteItemById/{id} (id=${item.id})}"	class="btn btn-primary">Delete</a></td> 
+ 				<td> 
+
+			</tr>
+
+		</tbody>
+	</table>
+					<input type="button" onclick="location.href='ListOfCategory.html';" value="Back To Category" />
+
+	<!-- Popper.JS -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+</body>
+</html>

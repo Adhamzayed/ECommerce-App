@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<style>
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h3 class="text-center">List Of Category</h3>
+	<table id="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Category Number</th>
+				<th scope="col">Category Name</th>
+				<th scope="col">description</th>	
+				<th scope="col">Base Section </th>
+				<th scope="col">Delete</th>
+				<th scope="col">Add Item</th>
+								<th scope="col">Sub Item</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="category:${category}">
+				<td>[[*{category.id}]]</td>
+				<td>[[*{category.Name}]]</td>
+				<td>[[*{category.description}]]</td>
+				<td>[[*{category.Section.getSectionName()}]]</td>
+				 <!-- Delete category  -->
+				<td><a th:href="@{/deleteCategoryById/{id} (id=${category.id})}"	class="btn btn-primary">Delete</a></td> 
+				<td><a th:href ="@{/addItem/add/{id} (id=${category.id})}" class="btn btn-primary"> Add Item</a></td> 
+				<td><a th:href ="@{/ListOfSubItem/{id} (id=${category.id})}" class="btn btn-primary"> Sub Item</a></td> 
+			</tr>
+
+		</tbody>
+	</table>
+					<input type="button" onclick="location.href='/ListOfSection.html';" value="List Of Section" />
+
+	<!-- Popper.JS -->
+	<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+</body>
+</html>
